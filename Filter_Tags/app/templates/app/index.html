@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <style>
+        .background {
+            background-color: #D3D3D3;
+            height: 50px;
+        }
+        .example {
+            padding-left: 10px;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>join</b></h3>
+    <p style="text-align: justify;">
+        Преобразует строку в заглавный регистр, заставляя слова начинаться с
+        прописного символа, а остальные символы - со строчного.
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|join:" // " }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>join</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ value }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>join</b>:</p>
+    <div class="background" style="height: 60px;">
+        <p class="example">
+            {{ value|join:" // " }}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>truncatewords_html</b></h3>
+    <p style="text-align: justify;">
+        Преобразует строку в заглавный регистр, заставляя слова начинаться с
+        прописного символа, а остальные символы - со строчного.
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|truncatewords_html:2 }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>truncatewords_html</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ value }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>truncatewords_html</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ value|truncatewords_html:2 }}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>rjust</b></h3>
+    <p style="text-align: justify;">
+        Преобразует строку в заглавный регистр, заставляя слова начинаться с
+        прописного символа, а остальные символы - со строчного.
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|rjust:25 }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>rjust</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ "Lorem" }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>rjust</b>:</p>
+    <div class="background">
+        <pre class="example">
+            {{ "Lorem"|rjust:25 }}
+        </pre>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>dictsortreversed</b></h3>
+    <p style="text-align: justify;">
+        Преобразует строку в заглавный регистр, заставляя слова начинаться с
+        прописного символа, а остальные символы - со строчного.
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ foods|dictsortreversed:'category' }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>dictsortreversed</b>:</p>
+    <div class="background" style="height: 150px;">
+        <ol class="example" style="list-style:none">
+            {% for food in foods %}
+            <li>{{ food.name }}, {{ food.category }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <p>Пример с фильтром <b>dictsortreversed</b>:</p>
+    <div class="background" style="height: 150px;">
+        <ol class="example" style="list-style:none">
+            {% for food in foods|dictsortreversed:'category' %}
+            <li>{{ food.name }}, {{ food.category }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>wordcount</b></h3>
+    <p style="text-align: justify;">
+        Преобразует строку в заглавный регистр, заставляя слова начинаться с
+        прописного символа, а остальные символы - со строчного.
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|wordcount }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>wordcount</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ value }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>wordcount</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ value|wordcount }}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>default_if_none</b></h3>
+    <p style="text-align: justify;">
+        Преобразует строку в заглавный регистр, заставляя слова начинаться с
+        прописного символа, а остальные символы - со строчного.
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|default_if_none:"nothing" }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>default_if_none</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ None }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>default_if_none</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ None|default_if_none:"nothing" }}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+</body>
+</html>
