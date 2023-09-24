@@ -12,6 +12,80 @@
             padding-left: 10px;
             padding-top: 15px;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -20,8 +94,8 @@
 <div style="width: 300px;">
     <h3>Фильтр <b>join</b></h3>
     <p style="text-align: justify;">
-        Преобразует строку в заглавный регистр, заставляя слова начинаться с
-        прописного символа, а остальные символы - со строчного.
+        Фильтр используется для объединения значений из списка в
+        одну строку с использованием заданного разделителя
     </p>
 
     <p>Синтаксис</p>
@@ -39,7 +113,7 @@
     </div>
 
     <p>Пример с фильтром <b>join</b>:</p>
-    <div class="background" style="height: 60px;">
+    <div class="background" style="height: 100px;">
         <p class="example">
             {{ value|join:" // " }}
         </p>
@@ -50,8 +124,8 @@
 <div style="width: 300px;">
     <h3>Фильтр <b>truncatewords_html</b></h3>
     <p style="text-align: justify;">
-        Преобразует строку в заглавный регистр, заставляя слова начинаться с
-        прописного символа, а остальные символы - со строчного.
+        Фильтр используется для обрезки строки
+        до заданного количества слов
     </p>
 
     <p>Синтаксис</p>
@@ -80,8 +154,9 @@
 <div style="width: 300px;">
     <h3>Фильтр <b>rjust</b></h3>
     <p style="text-align: justify;">
-        Преобразует строку в заглавный регистр, заставляя слова начинаться с
-        прописного символа, а остальные символы - со строчного.
+        Фильтр используется для выравнивания текста по правому краю,
+        путем добавления заданного количества символов
+        слева до указанной ширины.
     </p>
 
     <p>Синтаксис</p>
@@ -110,12 +185,12 @@
 <div style="width: 300px;">
     <h3>Фильтр <b>dictsortreversed</b></h3>
     <p style="text-align: justify;">
-        Преобразует строку в заглавный регистр, заставляя слова начинаться с
-        прописного символа, а остальные символы - со строчного.
+        Фильтр используется для сортировки словаря
+        в обратном порядке на основе значений в словарях
     </p>
 
     <p>Синтаксис</p>
-    <div class="background">
+    <div style="height: 90px" class="background">
         <p class="example">
             <b>{% verbatim %} {{ foods|dictsortreversed:'category' }} {% endverbatim %}</b>
         </p>
@@ -144,8 +219,7 @@
 <div style="width: 300px;">
     <h3>Фильтр <b>wordcount</b></h3>
     <p style="text-align: justify;">
-        Преобразует строку в заглавный регистр, заставляя слова начинаться с
-        прописного символа, а остальные символы - со строчного.
+        Фильтр используется для подсчета количества слов в строке
     </p>
 
     <p>Синтаксис</p>
@@ -174,12 +248,13 @@
 <div style="width: 300px;">
     <h3>Фильтр <b>default_if_none</b></h3>
     <p style="text-align: justify;">
-        Преобразует строку в заглавный регистр, заставляя слова начинаться с
-        прописного символа, а остальные символы - со строчного.
+        Фильтр используется для задания значения по умолчанию,
+        которое будет отображаться в шаблоне,
+        если переменная или выражение равны (None)
     </p>
 
     <p>Синтаксис</p>
-    <div class="background">
+    <div style="height: 90px" class="background">
         <p class="example">
             <b>{% verbatim %} {{ value|default_if_none:"nothing" }} {% endverbatim %}</b>
         </p>
@@ -198,6 +273,250 @@
             {{ None|default_if_none:"nothing" }}
         </p>
     </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>floatformat</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для форматирования чисел с
+        плавающей запятой (float) в шаблонах Django.
+        Этот фильтр позволяет округлить
+        число до указанного количества знаков после запятой
+        и отобразить его в виде строки.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="height: 50px" class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ float_value|floatformat }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>floatformat</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ float_value }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>floatformat</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ float_value|floatformat }}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>random</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для выбора случайного элемента из списка .
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="height: 50px" class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|random }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>random</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ some_list }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>random</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ some_list|random }}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>json_script</b></h3>
+    <p style="text-align: justify;">
+        Фильтр предназначен для безопасного встраивания данных JSON в HTML-код страницы.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="height: 100px" class="background">
+        <p class="example">
+            <b>{% verbatim %}{{ value|json_script:"variable_name" }}{% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>json_script</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ some_list }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>json_script</b>:</p>
+    <div class="background">
+    <p class="example">
+        <div id="myData" data-json="{{ some_list|json_script }}"></div>
+    </p>
+    </div>
+
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>timeuntil</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для вычисления временного интервала между текущей датой
+        и временной меткой, представленной в виде строки или объекта datetime.
+    </p>
+
+    <p>Синтаксис</p>
+    <div  class="background">
+        <p class="example">
+            <b>{% verbatim %}{{ date_to|timeuntil:date}}{% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>timeuntil</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ date }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>timeuntil</b>:</p>
+    <div class="background">
+    <p class="example">
+            {{ date_to|timeuntil:date}}
+    </p>
+    </div>
+
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>stringformat</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для форматирования строковых значений
+        с использованием специальных форматных строк
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 400px"  class="background">
+        <p class="example">
+            <b>{% verbatim %}{{ some_value|stringformat:"format_string" }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>stringformat</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ float_value }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>stringformat</b>:</p>
+    <div class="background">
+    <p class="example">
+            {{ float_value|floatformat:"2" }}
+    </p>
+    </div>
+
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>first</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для получения первого элемента из списка
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ some_list|first }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>first</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ some_list }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>first</b>:</p>
+    <div class="background">
+    <p class="example">
+            {{ some_list|first }}
+    </p>
+    </div>
+
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>center</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для центрирования текста в строке
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="height: 100px"  class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|center:"15" }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>center</b>:</p>
+    <div class="background">
+        <pre class="example">
+            {{ value }}
+        </pre>
+    </div>
+
+    <p>Пример с фильтром <b>center</b>:</p>
+    <div  style="" class="background">
+    <pre class="example">
+            {{ value|center:'60' }}
+    </pre>
+    </div>
+
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>urlencode</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для преобразования строки в URL-кодированный формат
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="height: 100px"  class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ value|urlencode }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>urlencode</b>:</p>
+    <div style="width: 350px"  class="background">
+        <p class="example">
+            {{ url }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>urlencode</b>:</p>
+    <div style="width: 450px" class="background">
+    <p class="example">
+            {{ url|urlencode }}
+    </p>
+    </div>
+
 </div>
 <div style="background-color: black; height: 5px;"></div>
 </body>
