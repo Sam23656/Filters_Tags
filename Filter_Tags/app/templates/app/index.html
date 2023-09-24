@@ -519,5 +519,69 @@
 
 </div>
 <div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>phone2numeric</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для преобразования буквенных символов,
+        которые могут находиться на клавишах мобильного телефона, в соответствующие им цифры
+    </p>
+
+    <p>Синтаксис</p>
+    <div class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ phone|phone2numeric }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>phone2numeric</b>:</p>
+    <div  class="background">
+        <p class="example">
+            {{ phone }}
+        </p>
+    </div>
+
+    <p>Пример с фильтром <b>phone2numeric</b>:</p>
+    <div class="background">
+    <p class="example">
+            {{ phone|phone2numeric }}
+    </p>
+    </div>
+
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Фильтр <b>dictsort</b></h3>
+    <p style="text-align: justify;">
+        Фильтр используется для сортировки словаря на основе значений в словарях
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="height: 90px" class="background">
+        <p class="example">
+            <b>{% verbatim %} {{ foods|dictsort:'category' }} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без фильтра <b>dictsort</b>:</p>
+    <div class="background" style="height: 150px;">
+        <ol class="example" style="list-style:none">
+            {% for food in foods %}
+            <li>{{ food.name }}, {{ food.category }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <p>Пример с фильтром <b>dictsort</b>:</p>
+    <div class="background" style="height: 150px;">
+        <ol class="example" style="list-style:none">
+            {% for food in foods|dictsort:'category' %}
+            <li>{{ food.name }}, {{ food.category }}</li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
 </body>
 </html>
