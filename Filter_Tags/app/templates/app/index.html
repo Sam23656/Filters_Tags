@@ -12,80 +12,6 @@
             padding-left: 10px;
             padding-top: 15px;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -580,6 +506,287 @@
             <li>{{ food.name }}, {{ food.category }}</li>
             {% endfor %}
         </ol>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>templatetag</b></h3>
+    <p style="text-align: justify;">
+       Тег используется для вывода специальных символов,
+       таких как фигурные скобки {},
+       как часть результата шаблона,
+       без их интерпретации как тегов или переменных DTL.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 650px;" class="background">
+        <p class="example">
+            <b>{% verbatim %} {% templatetag openbrace %} {{ value }} {% templatetag closebrace %} {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>templatetag</b>:</p>
+    <div  class="background">
+        <p class="example">
+            {{ value }}
+        </p>
+    </div>
+
+    <p>Пример с тегом <b>templatetag</b>:</p>
+    <div class="background">
+    <p class="example">
+        {% templatetag openbrace %} {{ value }} {% templatetag closebrace %}
+    </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>resetcycle</b></h3>
+    <p style="text-align: justify;">
+       Тег используется для сброса цикла,
+        созданного с помощью тега cycle,
+         к начальному состоянию.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 750px;" class="background">
+        <p class="example">
+            <b>{% verbatim %} {% for elem in some_list %} {% cycle 'odd' 'even' %} {{elem}} {% resetcycle %} {% endfor %}{% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>resetcycle</b>:</p>
+    <div style="display: flex; width: 650px;" class="background">
+        {% for elem in some_list %}
+        <p style="margin-top: -7px;"  class="example">
+            {% cycle 'odd' 'even' %} {{elem}}
+        </p>
+        {% endfor %}
+    </div>
+
+    <p>Пример с тегом <b>resetcycle</b>:</p>
+    <div style="display: flex; width: 650px;" class="background">
+        {% for elem in some_list %}
+        <p style="margin-top: -7px;"  class="example">
+            {% cycle 'odd' 'even' %} {{elem}}
+        </p>
+        {% resetcycle %}
+        {% endfor %}
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>with</b></h3>
+    <p style="text-align: justify;">
+       Тег используется для создания временных переменных в шаблонах.
+        Он позволяет присвоить значению переменной другое имя
+        и использовать его внутри текущего контекста шаблона.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 700px;" class="background">
+        <p class="example">
+            <b>{% verbatim %}{% with total_price=price %}
+            Total Price: ${{ total_price }}
+            {% endwith %}
+            {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>with</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ price }}
+        </p>
+    </div>
+
+    <p>Пример с тегом <b>with</b>:</p>
+    <div class="background">
+        <p class="example">
+        {% with total_price=price %}
+            Total Price: ${{ total_price }}
+        {% endwith %}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>verbatim</b></h3>
+    <p style="text-align: justify;">
+       Тег используется для отключения обработки шаблонизатором специфических символов,
+        что означает, что содержимое между тегом
+          verbatim будет рассматриваться
+          как литеральный текст и не будет интерпретироваться 
+          как шаблонный код.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 400px;" class="background">
+        <p class="example">
+            <b>{% templatetag openblock %} verbatim {% templatetag closeblock %}
+                {% templatetag openvariable %} value {% templatetag closevariable %}
+                {% templatetag openblock %} endverbatim {% templatetag closeblock %}
+            </b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>verbatim</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ value }}
+        </p>
+    </div>
+
+    <p>Пример с тегом <b>verbatim</b>:</p>
+    <div class="background">
+        <p class="example">
+            {% verbatim %}
+                {{ value }}
+            {% endverbatim %}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>block</b></h3>
+    <p style="text-align: justify;">
+        Тег используется для определения блока кода внутри шаблона,
+         который можно переопределить в дочерних шаблонах.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 700px;" class="background">
+        <p class="example">
+            <b>{% verbatim %}
+            {% block content %}
+               
+            {% endblock %}
+            
+            {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>block</b>:</p>
+    <div class="background">
+        <p class="example">
+
+        </p>
+    </div>
+
+    <p>Пример с тегом <b>block</b>:</p>
+    <div class="background">
+        <p class="example">
+            {% block content %}
+               <a href="{% url 'block' %}">Link</a>
+            {% endblock %}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>cycle</b></h3>
+    <p style="text-align: justify;">
+        Тег который позволяет циклически переключаться между значениями внутри блока шаблона.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width:300px; height: 150px;" class="background">
+        <p class="example">
+            <b>{% verbatim %}
+            {% for num in nums %}
+                <p> {% cycle 'even' 'odd' %} {{num}}</p>
+            {% endfor %}
+            {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>cycle</b>:</p>
+    <div style="display: flex;" class="background">
+        {% for elem in some_list %}
+        <p style="margin-top: -5px;" class="example">
+            {{ elem }}
+        </p>
+        {% endfor %}
+    </div>
+
+    <p>Пример с тегом <b>cycle</b>:</p>
+    <div style="display: flex; width: 500px;" class="background">
+        {% for elem in some_list %}
+            <p style="margin-top: -5px;" class="example">
+                {% cycle 'even' 'odd' %} {{ elem }}
+            </p>
+        {% endfor %}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>widthratio</b></h3>
+    <p style="text-align: justify;">
+        Тег который используется для расчета значения,
+         пропорционального ширине двух чисел.
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 400px;" class="background">
+        <p class="example">
+            <b>{% verbatim %}
+                {% widthratio value max_value 100 %}
+            {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>widthratio</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ price }}
+        </p>
+    </div>
+
+    <p>Пример с тегом <b>widthratio</b>:</p>
+    <div class="background">
+        <p class="example">
+            {% widthratio price 500 100 %}
+        </p>
+    </div>
+</div>
+<div style="background-color: black; height: 5px;"></div>
+
+<div style="width: 300px;">
+    <h3>Тег <b>load</b></h3>
+    <p style="text-align: justify;">
+        Тег используется для динамической загрузки
+         и активации пользовательских тегов и фильтров в шаблонах Django
+    </p>
+
+    <p>Синтаксис</p>
+    <div style="width: 400px;" class="background">
+        <p class="example">
+            <b>{% verbatim %}
+                {% load module_name %}
+            {% endverbatim %}</b>
+        </p>
+    </div>
+
+    <p>Пример без тега <b>load</b>:</p>
+    <div class="background">
+        <p class="example">
+            {{ price }}
+        </p>
+    </div>
+
+    <p>Пример с тегом <b>load</b>:</p>
+    <div class="background">
+        <p class="example">
+            {% widthratio price 500 100 %}
+        </p>
     </div>
 </div>
 <div style="background-color: black; height: 5px;"></div>
